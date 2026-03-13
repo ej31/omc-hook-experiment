@@ -137,9 +137,6 @@ Real talk — this is a narrow experiment. Here's what I **cannot** conclude:
 
 ## Full Analysis Output
 
-<details>
-<summary>Click to expand the complete analyze.py output</summary>
-
 ```
 ==========================================================================================
   OMC A/B Test Results Comparison (Sonnet + Markdown Editor)
@@ -239,8 +236,6 @@ Real talk — this is a narrow experiment. Here's what I **cannot** conclude:
   Dynamic injections:  ON=8 / OFF=8
   Agent delegations:   ON=1 / OFF=1
 ```
-
-</details>
 
 ## Repo Structure
 
