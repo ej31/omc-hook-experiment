@@ -135,6 +135,113 @@ Real talk — this is a narrow experiment. Here's what I **cannot** conclude:
 
 5. **OMC's real overhead is the static system prompt, not the dynamic hooks.** The 32 MCP tool definitions + agent catalog + skill list that OMC registers are loaded into the system prompt on every single turn regardless of `DISABLE_OMC=1`. That's the constant tax, and this experiment only measured the additional effect of hooks on top of it.
 
+## Full Analysis Output
+
+<details>
+<summary>Click to expand the complete analyze.py output</summary>
+
+```
+==========================================================================================
+  OMC A/B Test Results Comparison (Sonnet + Markdown Editor)
+==========================================================================================
+
+  [OMC OFF] (3 runs)
+  Run    Time     Tools  Par%    Deleg CacheWrite CacheRead    Output     Cost$    Lines   Tests
+  ------ -------- ------ ------- ----- ---------- ------------ ---------- -------- ------- ----------
+  run1   2592     40     0.0     0     237722     5409080      66502      3.512    2032    0P/0F
+  run2   2205     37     2.9     1     638053     5939248      137915     6.2434   2211    0P/0F
+  run3   1659     45     2.3     2     914540     6832113      96989      6.9343   3035    0P/0F
+  Avg    2152.0   40.7   1.7     1.0   596772     6060147      100469     5.5632   2426.0
+
+  [OMC ON] (3 runs)
+  Run    Time     Tools  Par%    Deleg CacheWrite CacheRead    Output     Cost$    Lines   Tests
+  ------ -------- ------ ------- ----- ---------- ------------ ---------- -------- ------- ----------
+  run1   1763     37     2.9     1     806204     5209151      81361      5.8071   2981    0P/0F
+  run2   1703     39     2.6     1     554280     6203916      103162     5.4878   2106    0P/0F
+  run3   1552     35     2.9     0     597126     5799646      93912      5.3885   2204    0P/0F
+  Avg    1672.7   37.0   2.8     0.7   652537     5737571      92812      5.5611   2430.3
+
+==========================================================================================
+  Per-Prompt Duration (seconds)
+==========================================================================================
+
+  Phase           OMC OFF      OMC ON       Delta
+  --------------- ------------ ------------ ------------
+  P1 Implement    391.0        281.3        -109.7
+  P2 Test         515.3        868.3        +353.0
+  P3 Review       503.7        522.0        +18.3
+
+==========================================================================================
+  Per-Prompt Token Details (Cache Breakdown)
+==========================================================================================
+
+  [P1 Implement]
+  Metric               OMC OFF         OMC ON          Delta           Delta%
+  -------------------- --------------- --------------- --------------- --------
+  Cache Write          60951           53722           -7230           -11.9%
+  Cache Read           195204          424384          +229180         +117.4%
+  Output               30808           21384           -9424           -30.6%
+  Total                286971          499521          +212550         +74.1%
+  Cost ($)             0.7493          0.6496          -0.0997         -13.3%
+
+  [P2 Test]
+  Metric               OMC OFF         OMC ON          Delta           Delta%
+  -------------------- --------------- --------------- --------------- --------
+  Cache Write          76346           98403           +22056          +28.9%
+  Cache Read           638925          1020970         +382045         +59.8%
+  Output               37410           59829           +22419          +59.9%
+  Total                752692          1179244         +426551         +56.7%
+  Cost ($)             1.0392          1.5728          +0.5336         +51.3%
+
+  [P3 Review]
+  Metric               OMC OFF         OMC ON          Delta           Delta%
+  -------------------- --------------- --------------- --------------- --------
+  Cache Write          141797          160990          +19193          +13.5%
+  Cache Read           2134742         1264327         -870415         -40.8%
+  Output               19636           22766           +3130           +15.9%
+  Total                2296196         1448122         -848075         -36.9%
+  Cost ($)             1.4668          1.3246          -0.1422         -9.7%
+
+==========================================================================================
+  Overall Comparison (Averages)
+==========================================================================================
+
+  Metric                 OMC OFF         OMC ON          Delta           Delta%     Verdict
+  ---------------------- --------------- --------------- --------------- ---------- ----------
+  Wall Time (sec)        2152.0          1672.7          -479.3          -22.3%     ON wins
+  Tool Calls             40.7            37.0            -3.7            -9.1%      ON wins
+  Parallel Rate (%)      1.7             2.8             +1.1            +64.7%     ON wins
+  Agent Delegations      1.0             0.7             -0.3            -30.0%     -
+  Cache Write Tokens     596771.7        652536.7        +55765.0        +9.3%      OFF wins
+  Cache Read Tokens      6060147.0       5737571.0       -322576.0       -5.3%      ON wins
+  Output Tokens          100468.7        92811.7         -7657.0         -7.6%      ON wins
+  Total Tokens           6757479.0       6483147.7       -274331.3       -4.1%      ON wins
+  Code Lines             2426.0          2430.3          +4.3            +0.2%      -
+  Cost ($)               5.5632          5.5611          -0.0021         -0.0%      ON wins
+  system-reminder        8.0             7.7             -0.3            -3.7%      -
+
+==========================================================================================
+  Test Results Comparison
+==========================================================================================
+
+  Run        OMC OFF                   OMC ON
+  ---------- ------------------------- -------------------------
+  run1       0P/0F (total 0)           0P/0F (total 0)
+  run2       0P/0F (total 0)           0P/0F (total 0)
+  run3       0P/0F (total 0)           0P/0F (total 0)
+
+==========================================================================================
+  OMC Overhead Summary
+==========================================================================================
+  Token overhead:      -4.1%
+  Cost overhead:       -0.0%
+  Cache read overhead: -5.3% (from CLAUDE.md injection)
+  Dynamic injections:  ON=8 / OFF=8
+  Agent delegations:   ON=1 / OFF=1
+```
+
+</details>
+
 ## Repo Structure
 
 ```

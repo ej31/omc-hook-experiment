@@ -1,0 +1,899 @@
+{
+  "enable_omc": [
+    {
+      "condition": "enable",
+      "run": 1,
+      "duration_sec": 1763,
+      "p1_duration_sec": 277,
+      "p2_duration_sec": 771,
+      "p3_duration_sec": 714,
+      "total_tool_calls": 37,
+      "total_turns": 35,
+      "parallel_turns": 1,
+      "sequential_turns": 34,
+      "parallel_rate": 2.9,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 7,
+      "agent_delegations": 1,
+      "main_tokens": {
+        "input_tokens": 228,
+        "cache_creation_input_tokens": 806204,
+        "cache_read_input_tokens": 5209151,
+        "output_tokens": 81361,
+        "total_input_tokens": 6015583,
+        "total_tokens": 6096944
+      },
+      "main_cost": {
+        "cost_input": 0.000684,
+        "cost_cache_write": 3.023265,
+        "cost_cache_read": 1.562745,
+        "cost_output": 1.220415,
+        "cost_total": 5.8071
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 228,
+        "cache_creation_input_tokens": 806204,
+        "cache_read_input_tokens": 5209151,
+        "output_tokens": 81361,
+        "total_input_tokens": 6015583,
+        "total_tokens": 6096944
+      },
+      "combined_cost": {
+        "cost_input": 0.000684,
+        "cost_cache_write": 3.023265,
+        "cost_cache_read": 1.562745,
+        "cost_output": 1.220415,
+        "cost_total": 5.8071
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 30,
+          "cache_creation_input_tokens": 54142,
+          "cache_read_input_tokens": 411423,
+          "output_tokens": 22125,
+          "total_input_tokens": 465595,
+          "total_tokens": 487720,
+          "cost": {
+            "cost_input": 9e-05,
+            "cost_cache_write": 0.203033,
+            "cost_cache_read": 0.123427,
+            "cost_output": 0.331875,
+            "cost_total": 0.6584
+          }
+        },
+        "p2": {
+          "input_tokens": 33,
+          "cache_creation_input_tokens": 106503,
+          "cache_read_input_tokens": 809113,
+          "output_tokens": 59142,
+          "total_input_tokens": 915649,
+          "total_tokens": 974791,
+          "cost": {
+            "cost_input": 9.9e-05,
+            "cost_cache_write": 0.399386,
+            "cost_cache_read": 0.242734,
+            "cost_output": 0.88713,
+            "cost_total": 1.5293
+          }
+        },
+        "p3": {
+          "input_tokens": 52,
+          "cache_creation_input_tokens": 221174,
+          "cache_read_input_tokens": 1277804,
+          "output_tokens": 32049,
+          "total_input_tokens": 1499030,
+          "total_tokens": 1531079,
+          "cost": {
+            "cost_input": 0.000156,
+            "cost_cache_write": 0.829403,
+            "cost_cache_read": 0.383341,
+            "cost_output": 0.480735,
+            "cost_total": 1.6936
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 220,
+        "style.css": 626,
+        "editor.js": 659,
+        "markdown-parser.js": 358,
+        "editor.test.js": 1118
+      },
+      "total_code_lines": 2981,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Write": 7,
+        "Bash": 9,
+        "Read": 7,
+        "Edit": 13,
+        "Agent": 1
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 139,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-enable-omc-run1/fa4810ba-4b12-49cb-9fb1-e7e689d3a3d3.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": [
+        {
+          "tools": [
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "timestamp": "2026-03-13T06:50:00.979000+00:00"
+        }
+      ]
+    },
+    {
+      "condition": "enable",
+      "run": 2,
+      "duration_sec": 1703,
+      "p1_duration_sec": 324,
+      "p2_duration_sec": 840,
+      "p3_duration_sec": 538,
+      "total_tool_calls": 39,
+      "total_turns": 38,
+      "parallel_turns": 1,
+      "sequential_turns": 37,
+      "parallel_rate": 2.6,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 10,
+      "agent_delegations": 1,
+      "main_tokens": {
+        "input_tokens": 226,
+        "cache_creation_input_tokens": 554280,
+        "cache_read_input_tokens": 6203916,
+        "output_tokens": 103162,
+        "total_input_tokens": 6758422,
+        "total_tokens": 6861584
+      },
+      "main_cost": {
+        "cost_input": 0.000678,
+        "cost_cache_write": 2.07855,
+        "cost_cache_read": 1.861175,
+        "cost_output": 1.54743,
+        "cost_total": 5.4878
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 226,
+        "cache_creation_input_tokens": 554280,
+        "cache_read_input_tokens": 6203916,
+        "output_tokens": 103162,
+        "total_input_tokens": 6758422,
+        "total_tokens": 6861584
+      },
+      "combined_cost": {
+        "cost_input": 0.000678,
+        "cost_cache_write": 2.07855,
+        "cost_cache_read": 1.861175,
+        "cost_output": 1.54743,
+        "cost_total": 5.4878
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 33,
+          "cache_creation_input_tokens": 56269,
+          "cache_read_input_tokens": 467740,
+          "output_tokens": 23255,
+          "total_input_tokens": 524042,
+          "total_tokens": 547297,
+          "cost": {
+            "cost_input": 9.9e-05,
+            "cost_cache_write": 0.211009,
+            "cost_cache_read": 0.140322,
+            "cost_output": 0.348825,
+            "cost_total": 0.7003
+          }
+        },
+        "p2": {
+          "input_tokens": 45,
+          "cache_creation_input_tokens": 97631,
+          "cache_read_input_tokens": 1144096,
+          "output_tokens": 60136,
+          "total_input_tokens": 1241772,
+          "total_tokens": 1301908,
+          "cost": {
+            "cost_input": 0.000135,
+            "cost_cache_write": 0.366116,
+            "cost_cache_read": 0.343229,
+            "cost_output": 0.90204,
+            "cost_total": 1.6115
+          }
+        },
+        "p3": {
+          "input_tokens": 31,
+          "cache_creation_input_tokens": 134384,
+          "cache_read_input_tokens": 1282558,
+          "output_tokens": 20928,
+          "total_input_tokens": 1416973,
+          "total_tokens": 1437901,
+          "cost": {
+            "cost_input": 9.3e-05,
+            "cost_cache_write": 0.50394,
+            "cost_cache_read": 0.384767,
+            "cost_output": 0.31392,
+            "cost_total": 1.2027
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 190,
+        "style.css": 531,
+        "editor.js": 505,
+        "markdown-parser.js": 270,
+        "editor.test.js": 610
+      },
+      "total_code_lines": 2106,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Write": 7,
+        "Bash": 9,
+        "Read": 11,
+        "Edit": 11,
+        "Agent": 1
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 138,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-enable-omc-run2/c0da1ee9-0755-4d29-8c32-3c93176f1586.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": [
+        {
+          "tools": [
+            "Read",
+            "Read"
+          ],
+          "timestamp": "2026-03-13T06:52:26.247000+00:00"
+        }
+      ]
+    },
+    {
+      "condition": "enable",
+      "run": 3,
+      "duration_sec": 1552,
+      "p1_duration_sec": 243,
+      "p2_duration_sec": 994,
+      "p3_duration_sec": 314,
+      "total_tool_calls": 35,
+      "total_turns": 34,
+      "parallel_turns": 1,
+      "sequential_turns": 33,
+      "parallel_rate": 2.9,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 6,
+      "agent_delegations": 0,
+      "main_tokens": {
+        "input_tokens": 231,
+        "cache_creation_input_tokens": 597126,
+        "cache_read_input_tokens": 5799646,
+        "output_tokens": 93912,
+        "total_input_tokens": 6397003,
+        "total_tokens": 6490915
+      },
+      "main_cost": {
+        "cost_input": 0.000693,
+        "cost_cache_write": 2.239223,
+        "cost_cache_read": 1.739894,
+        "cost_output": 1.40868,
+        "cost_total": 5.3885
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 231,
+        "cache_creation_input_tokens": 597126,
+        "cache_read_input_tokens": 5799646,
+        "output_tokens": 93912,
+        "total_input_tokens": 6397003,
+        "total_tokens": 6490915
+      },
+      "combined_cost": {
+        "cost_input": 0.000693,
+        "cost_cache_write": 2.239223,
+        "cost_cache_read": 1.739894,
+        "cost_output": 1.40868,
+        "cost_total": 5.3885
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 30,
+          "cache_creation_input_tokens": 50754,
+          "cache_read_input_tokens": 393990,
+          "output_tokens": 18773,
+          "total_input_tokens": 444774,
+          "total_tokens": 463547,
+          "cost": {
+            "cost_input": 9e-05,
+            "cost_cache_write": 0.190328,
+            "cost_cache_read": 0.118197,
+            "cost_output": 0.281595,
+            "cost_total": 0.5902
+          }
+        },
+        "p2": {
+          "input_tokens": 48,
+          "cache_creation_input_tokens": 91074,
+          "cache_read_input_tokens": 1109702,
+          "output_tokens": 60208,
+          "total_input_tokens": 1200824,
+          "total_tokens": 1261032,
+          "cost": {
+            "cost_input": 0.000144,
+            "cost_cache_write": 0.341527,
+            "cost_cache_read": 0.332911,
+            "cost_output": 0.90312,
+            "cost_total": 1.5777
+          }
+        },
+        "p3": {
+          "input_tokens": 33,
+          "cache_creation_input_tokens": 127412,
+          "cache_read_input_tokens": 1232618,
+          "output_tokens": 15322,
+          "total_input_tokens": 1360063,
+          "total_tokens": 1375385,
+          "cost": {
+            "cost_input": 9.9e-05,
+            "cost_cache_write": 0.477795,
+            "cost_cache_read": 0.369785,
+            "cost_output": 0.22983,
+            "cost_total": 1.0775
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 187,
+        "style.css": 645,
+        "editor.js": 451,
+        "markdown-parser.js": 311,
+        "editor.test.js": 610
+      },
+      "total_code_lines": 2204,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Write": 5,
+        "Bash": 10,
+        "Edit": 14,
+        "Read": 6
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 133,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-enable-omc-run3/0a4e2f61-d410-4a82-adb3-6e6eb8d07de8.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": [
+        {
+          "tools": [
+            "Read",
+            "Read"
+          ],
+          "timestamp": "2026-03-13T06:50:12.705000+00:00"
+        }
+      ]
+    }
+  ],
+  "disable_omc": [
+    {
+      "condition": "disable",
+      "run": 1,
+      "duration_sec": 2592,
+      "p1_duration_sec": 368,
+      "p2_duration_sec": 0,
+      "p3_duration_sec": 0,
+      "total_tool_calls": 40,
+      "total_turns": 40,
+      "parallel_turns": 0,
+      "sequential_turns": 40,
+      "parallel_rate": 0.0,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 2,
+      "agent_delegations": 0,
+      "main_tokens": {
+        "input_tokens": 84,
+        "cache_creation_input_tokens": 237722,
+        "cache_read_input_tokens": 5409080,
+        "output_tokens": 66502,
+        "total_input_tokens": 5646886,
+        "total_tokens": 5713388
+      },
+      "main_cost": {
+        "cost_input": 0.000252,
+        "cost_cache_write": 0.891458,
+        "cost_cache_read": 1.622724,
+        "cost_output": 0.99753,
+        "cost_total": 3.512
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 84,
+        "cache_creation_input_tokens": 237722,
+        "cache_read_input_tokens": 5409080,
+        "output_tokens": 66502,
+        "total_input_tokens": 5646886,
+        "total_tokens": 5713388
+      },
+      "combined_cost": {
+        "cost_input": 0.000252,
+        "cost_cache_write": 0.891458,
+        "cost_cache_read": 1.622724,
+        "cost_output": 0.99753,
+        "cost_total": 3.512
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 7,
+          "cache_creation_input_tokens": 58896,
+          "cache_read_input_tokens": 183028,
+          "output_tokens": 28780,
+          "total_input_tokens": 241931,
+          "total_tokens": 270711,
+          "cost": {
+            "cost_input": 2.1e-05,
+            "cost_cache_write": 0.22086,
+            "cost_cache_read": 0.054908,
+            "cost_output": 0.4317,
+            "cost_total": 0.7075
+          }
+        },
+        "p2": {
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0,
+          "total_input_tokens": 0,
+          "total_tokens": 0,
+          "cost": {
+            "cost_input": 0.0,
+            "cost_cache_write": 0.0,
+            "cost_cache_read": 0.0,
+            "cost_output": 0.0,
+            "cost_total": 0.0
+          }
+        },
+        "p3": {
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0,
+          "total_input_tokens": 0,
+          "total_tokens": 0,
+          "cost": {
+            "cost_input": 0.0,
+            "cost_cache_write": 0.0,
+            "cost_cache_read": 0.0,
+            "cost_output": 0.0,
+            "cost_total": 0.0
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 117,
+        "style.css": 642,
+        "editor.js": 438,
+        "markdown-parser.js": 265,
+        "editor.test.js": 570
+      },
+      "total_code_lines": 2032,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Write": 5,
+        "Bash": 25,
+        "Edit": 8,
+        "Read": 2
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 119,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-disable-omc-run1/1a30f4b6-7ea3-4281-be48-a07a347b7b11.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": []
+    },
+    {
+      "condition": "disable",
+      "run": 2,
+      "duration_sec": 2205,
+      "p1_duration_sec": 551,
+      "p2_duration_sec": 1015,
+      "p3_duration_sec": 638,
+      "total_tool_calls": 37,
+      "total_turns": 35,
+      "parallel_turns": 1,
+      "sequential_turns": 34,
+      "parallel_rate": 2.9,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 10,
+      "agent_delegations": 1,
+      "main_tokens": {
+        "input_tokens": 80,
+        "cache_creation_input_tokens": 638053,
+        "cache_read_input_tokens": 5939248,
+        "output_tokens": 137915,
+        "total_input_tokens": 6577381,
+        "total_tokens": 6715296
+      },
+      "main_cost": {
+        "cost_input": 0.00024,
+        "cost_cache_write": 2.392699,
+        "cost_cache_read": 1.781774,
+        "cost_output": 2.068725,
+        "cost_total": 6.2434
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 80,
+        "cache_creation_input_tokens": 638053,
+        "cache_read_input_tokens": 5939248,
+        "output_tokens": 137915,
+        "total_input_tokens": 6577381,
+        "total_tokens": 6715296
+      },
+      "combined_cost": {
+        "cost_input": 0.00024,
+        "cost_cache_write": 2.392699,
+        "cost_cache_read": 1.781774,
+        "cost_output": 2.068725,
+        "cost_total": 6.2434
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 7,
+          "cache_creation_input_tokens": 71746,
+          "cache_read_input_tokens": 224116,
+          "output_tokens": 42010,
+          "total_input_tokens": 295869,
+          "total_tokens": 337879,
+          "cost": {
+            "cost_input": 2.1e-05,
+            "cost_cache_write": 0.269047,
+            "cost_cache_read": 0.067235,
+            "cost_output": 0.63015,
+            "cost_total": 0.9665
+          }
+        },
+        "p2": {
+          "input_tokens": 14,
+          "cache_creation_input_tokens": 121490,
+          "cache_read_input_tokens": 702873,
+          "output_tokens": 74201,
+          "total_input_tokens": 824377,
+          "total_tokens": 898578,
+          "cost": {
+            "cost_input": 4.2e-05,
+            "cost_cache_write": 0.455587,
+            "cost_cache_read": 0.210862,
+            "cost_output": 1.113015,
+            "cost_total": 1.7795
+          }
+        },
+        "p3": {
+          "input_tokens": 30,
+          "cache_creation_input_tokens": 201762,
+          "cache_read_input_tokens": 3179261,
+          "output_tokens": 21604,
+          "total_input_tokens": 3381053,
+          "total_tokens": 3402657,
+          "cost": {
+            "cost_input": 9e-05,
+            "cost_cache_write": 0.756607,
+            "cost_cache_read": 0.953778,
+            "cost_output": 0.32406,
+            "cost_total": 2.0345
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 151,
+        "style.css": 513,
+        "editor.js": 560,
+        "markdown-parser.js": 287,
+        "editor.test.js": 700
+      },
+      "total_code_lines": 2211,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Write": 5,
+        "Edit": 16,
+        "Bash": 4,
+        "Read": 10,
+        "Agent": 1,
+        "Grep": 1
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 117,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-disable-omc-run2/54dd5991-da78-49d3-9ef2-177d20f9ee7d.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": [
+        {
+          "tools": [
+            "Read",
+            "Read",
+            "Read"
+          ],
+          "timestamp": "2026-03-13T06:58:07.009000+00:00"
+        }
+      ]
+    },
+    {
+      "condition": "disable",
+      "run": 3,
+      "duration_sec": 1659,
+      "p1_duration_sec": 254,
+      "p2_duration_sec": 531,
+      "p3_duration_sec": 873,
+      "total_tool_calls": 45,
+      "total_turns": 44,
+      "parallel_turns": 1,
+      "sequential_turns": 43,
+      "parallel_rate": 2.3,
+      "tool_failures": 0,
+      "stop_hook_blocks": 0,
+      "system_reminders": 12,
+      "agent_delegations": 2,
+      "main_tokens": {
+        "input_tokens": 111,
+        "cache_creation_input_tokens": 914540,
+        "cache_read_input_tokens": 6832113,
+        "output_tokens": 96989,
+        "total_input_tokens": 7746764,
+        "total_tokens": 7843753
+      },
+      "main_cost": {
+        "cost_input": 0.000333,
+        "cost_cache_write": 3.429525,
+        "cost_cache_read": 2.049634,
+        "cost_output": 1.454835,
+        "cost_total": 6.9343
+      },
+      "subagent_tokens": {
+        "input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 0,
+        "output_tokens": 0,
+        "total_input_tokens": 0,
+        "total_tokens": 0
+      },
+      "subagent_cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      },
+      "subagent_transcript_files": [],
+      "combined_tokens": {
+        "input_tokens": 111,
+        "cache_creation_input_tokens": 914540,
+        "cache_read_input_tokens": 6832113,
+        "output_tokens": 96989,
+        "total_input_tokens": 7746764,
+        "total_tokens": 7843753
+      },
+      "combined_cost": {
+        "cost_input": 0.000333,
+        "cost_cache_write": 3.429525,
+        "cost_cache_read": 2.049634,
+        "cost_output": 1.454835,
+        "cost_total": 6.9343
+      },
+      "per_prompt_tokens": {
+        "p1": {
+          "input_tokens": 8,
+          "cache_creation_input_tokens": 52212,
+          "cache_read_input_tokens": 178469,
+          "output_tokens": 21635,
+          "total_input_tokens": 230689,
+          "total_tokens": 252324,
+          "cost": {
+            "cost_input": 2.4e-05,
+            "cost_cache_write": 0.195795,
+            "cost_cache_read": 0.053541,
+            "cost_output": 0.324525,
+            "cost_total": 0.5739
+          }
+        },
+        "p2": {
+          "input_tokens": 19,
+          "cache_creation_input_tokens": 107549,
+          "cache_read_input_tokens": 1213903,
+          "output_tokens": 38028,
+          "total_input_tokens": 1321471,
+          "total_tokens": 1359499,
+          "cost": {
+            "cost_input": 5.7e-05,
+            "cost_cache_write": 0.403309,
+            "cost_cache_read": 0.364171,
+            "cost_output": 0.57042,
+            "cost_total": 1.338
+          }
+        },
+        "p3": {
+          "input_tokens": 33,
+          "cache_creation_input_tokens": 223629,
+          "cache_read_input_tokens": 3224965,
+          "output_tokens": 37305,
+          "total_input_tokens": 3448627,
+          "total_tokens": 3485932,
+          "cost": {
+            "cost_input": 9.9e-05,
+            "cost_cache_write": 0.838609,
+            "cost_cache_read": 0.96749,
+            "cost_output": 0.559575,
+            "cost_total": 2.3658
+          }
+        }
+      },
+      "code_lines": {
+        "index.html": 104,
+        "style.css": 699,
+        "editor.js": 916,
+        "markdown-parser.js": 402,
+        "editor.test.js": 914
+      },
+      "total_code_lines": 3035,
+      "test_pass_count": 0,
+      "test_fail_count": 0,
+      "test_total": 0,
+      "test_passed": false,
+      "tool_breakdown": {
+        "Bash": 6,
+        "Write": 5,
+        "Read": 12,
+        "Edit": 20,
+        "Agent": 2
+      },
+      "created_files": [
+        "editor.js",
+        "editor.test.js",
+        "index.html",
+        "markdown-parser.js",
+        "style.css"
+      ],
+      "transcript_lines": 142,
+      "transcript_paths": [
+        "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-disable-omc-run3/9efe5fcd-0c8a-4dd9-bf2d-3e999752458b.jsonl"
+      ],
+      "transcript_count": 1,
+      "parallel_details": [
+        {
+          "tools": [
+            "Read",
+            "Read"
+          ],
+          "timestamp": "2026-03-13T06:33:42.217000+00:00"
+        }
+      ]
+    }
+  ]
+}
