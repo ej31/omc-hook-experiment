@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마크다운 에디터</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- ── 헤더 & 툴바 ──────────────────────────────────── -->
+    <header class="header">
+      <div class="header-logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span>MD Editor</span>
+      </div>
+
+      <nav class="toolbar" role="toolbar" aria-label="마크다운 서식 도구">
+
+        <!-- 제목 -->
+        <button class="toolbar-btn" data-action="h1" title="제목 1 (H1)">H1</button>
+        <button class="toolbar-btn" data-action="h2" title="제목 2 (H2)">H2</button>
+        <button class="toolbar-btn" data-action="h3" title="제목 3 (H3)">H3</button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 텍스트 서식 -->
+        <button class="toolbar-btn" data-action="bold" title="굵게 (Ctrl+B)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/>
+            <path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/>
+          </svg>
+          <span>굵게</span>
+        </button>
+
+        <button class="toolbar-btn" data-action="italic" title="기울임 (Ctrl+I)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="4" x2="10" y2="4"/>
+            <line x1="14" y1="20" x2="5" y2="20"/>
+            <line x1="15" y1="4" x2="9" y2="20"/>
+          </svg>
+          <span>기울임</span>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 링크 / 이미지 -->
+        <button class="toolbar-btn" data-action="link" title="링크 삽입 (Ctrl+K)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          <span>링크</span>
+        </button>
+
+        <button class="toolbar-btn" data-action="image" title="이미지 삽입">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>이미지</span>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 코드 -->
+        <button class="toolbar-btn" data-action="code" title="코드 블록 삽입">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          <span>코드</span>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 목록 -->
+        <button class="toolbar-btn" data-action="ul" title="비순서 목록">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="9" y1="6" x2="20" y2="6"/>
+            <line x1="9" y1="12" x2="20" y2="12"/>
+            <line x1="9" y1="18" x2="20" y2="18"/>
+            <circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/>
+            <circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/>
+            <circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span>목록</span>
+        </button>
+
+        <button class="toolbar-btn" data-action="ol" title="순서 목록">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="10" y1="6" x2="21" y2="6"/>
+            <line x1="10" y1="12" x2="21" y2="12"/>
+            <line x1="10" y1="18" x2="21" y2="18"/>
+            <path d="M4 6h1v4" stroke-width="1.8"/>
+            <path d="M4 10h2" stroke-width="1.8"/>
+            <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" stroke-width="1.8"/>
+          </svg>
+          <span>번호</span>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 인용구 / 수평선 -->
+        <button class="toolbar-btn" data-action="blockquote" title="인용구">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+          </svg>
+          <span>인용</span>
+        </button>
+
+        <button class="toolbar-btn" data-action="hr" title="수평선">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+          </svg>
+          <span>선</span>
+        </button>
+
+        <div class="toolbar-separator"></div>
+
+        <!-- 내보내기 -->
+        <button class="toolbar-btn btn-export" data-action="export" title="HTML로 내보내기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span>HTML 내보내기</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- ── 에디터 영역 ──────────────────────────────────── -->
+    <main class="editor-area">
+
+      <!-- 에디터 패널 -->
+      <section class="pane editor-pane" aria-label="마크다운 편집기">
+        <div class="pane-header">
+          <span>편집기</span>
+          <span class="pane-status" id="line-count">1 줄</span>
+        </div>
+        <textarea
+          id="editor"
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          aria-label="마크다운 텍스트 입력"
+          placeholder="마크다운을 입력하세요..."
+        ></textarea>
+      </section>
+
+      <!-- 드래그 리사이저 -->
+      <div class="resizer" id="resizer" role="separator" aria-orientation="vertical" aria-label="패널 크기 조절" tabindex="0" aria-valuenow="50" aria-valuemin="20" aria-valuemax="80"></div>
+
+      <!-- 미리보기 패널 -->
+      <section class="pane preview-pane" aria-label="렌더링된 미리보기">
+        <div class="pane-header">
+          <span>미리보기</span>
+          <span class="pane-status" id="word-count">0 단어</span>
+        </div>
+        <article id="preview" aria-live="polite"></article>
+      </section>
+
+    </main>
+
+    <!-- ── 상태바 ───────────────────────────────────────── -->
+    <footer class="statusbar">
+      <div class="statusbar-item">
+        <div class="statusbar-dot saved" id="save-dot"></div>
+        <span id="save-status">저장됨</span>
+      </div>
+      <div class="statusbar-item">Ctrl+B 굵게 &nbsp;·&nbsp; Ctrl+I 기울임 &nbsp;·&nbsp; Ctrl+K 링크</div>
+    </footer>
+
+  </div><!-- /.app -->
+
+  <script src="markdown-parser.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

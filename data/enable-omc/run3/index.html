@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마크다운 에디터</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 툴바 -->
+    <header class="toolbar" role="toolbar" aria-label="마크다운 서식 툴바">
+      <!-- 텍스트 서식 -->
+      <div class="toolbar-group" role="group" aria-label="텍스트 서식">
+        <button class="toolbar-btn" data-action="bold" title="굵게 (Ctrl+B)">
+          <span class="btn-icon">𝐁</span>
+        </button>
+        <button class="toolbar-btn" data-action="italic" title="기울임 (Ctrl+I)">
+          <span class="btn-icon">𝐼</span>
+        </button>
+      </div>
+
+      <div class="toolbar-separator" role="separator"></div>
+
+      <!-- 제목 -->
+      <div class="toolbar-group" role="group" aria-label="제목">
+        <button class="toolbar-btn" data-action="h1" title="제목 1 (H1)">H1</button>
+        <button class="toolbar-btn" data-action="h2" title="제목 2 (H2)">H2</button>
+        <button class="toolbar-btn" data-action="h3" title="제목 3 (H3)">H3</button>
+      </div>
+
+      <div class="toolbar-separator" role="separator"></div>
+
+      <!-- 링크 / 이미지 -->
+      <div class="toolbar-group" role="group" aria-label="링크와 이미지">
+        <button class="toolbar-btn" data-action="link" title="링크 삽입 (Ctrl+K)">
+          <span class="btn-icon">🔗</span>
+          <span>링크</span>
+        </button>
+        <button class="toolbar-btn" data-action="image" title="이미지 삽입">
+          <span class="btn-icon">🖼</span>
+          <span>이미지</span>
+        </button>
+      </div>
+
+      <div class="toolbar-separator" role="separator"></div>
+
+      <!-- 코드 -->
+      <div class="toolbar-group" role="group" aria-label="코드">
+        <button class="toolbar-btn" data-action="code" title="인라인 코드 또는 코드 블록">
+          <span class="btn-icon">⌨</span>
+          <span>코드</span>
+        </button>
+        <button class="toolbar-btn" data-action="codeblock" title="코드 블록 삽입">
+          <span class="btn-icon">⊞</span>
+          <span>블록</span>
+        </button>
+      </div>
+
+      <div class="toolbar-separator" role="separator"></div>
+
+      <!-- 목록 -->
+      <div class="toolbar-group" role="group" aria-label="목록">
+        <button class="toolbar-btn" data-action="ul" title="순서 없는 목록">
+          <span class="btn-icon">≡</span>
+          <span>목록</span>
+        </button>
+        <button class="toolbar-btn" data-action="ol" title="순서 있는 목록">
+          <span class="btn-icon">⋮</span>
+          <span>번호</span>
+        </button>
+      </div>
+
+      <div class="toolbar-separator" role="separator"></div>
+
+      <!-- 기타 블록 요소 -->
+      <div class="toolbar-group" role="group" aria-label="블록 요소">
+        <button class="toolbar-btn" data-action="blockquote" title="인용문">
+          <span class="btn-icon">❝</span>
+          <span>인용</span>
+        </button>
+        <button class="toolbar-btn" data-action="hr" title="수평선">
+          <span class="btn-icon">—</span>
+          <span>구분선</span>
+        </button>
+      </div>
+
+      <!-- 여백 + 내보내기 -->
+      <div class="toolbar-spacer"></div>
+
+      <button class="export-btn" id="export-btn" title="HTML 파일로 내보내기">
+        <span>↓</span>
+        <span>HTML 내보내기</span>
+      </button>
+    </header>
+
+    <!-- 에디터 + 미리보기 -->
+    <main class="editor-container" role="main">
+      <!-- 에디터 창 -->
+      <section class="pane" id="editor-pane" aria-label="마크다운 에디터">
+        <div class="pane-header">
+          <span class="pane-title">편집</span>
+          <span class="pane-meta" id="editor-meta" aria-live="polite"></span>
+        </div>
+        <textarea
+          id="editor-textarea"
+          placeholder="마크다운을 입력하세요..."
+          spellcheck="false"
+          autocorrect="off"
+          autocapitalize="off"
+          aria-label="마크다운 편집기"
+        ></textarea>
+      </section>
+
+      <!-- 크기 조절 바 -->
+      <div
+        class="resizer"
+        id="resizer"
+        role="separator"
+        aria-label="창 크기 조절"
+        tabindex="0"
+        aria-orientation="vertical"
+      ></div>
+
+      <!-- 미리보기 창 -->
+      <section class="pane" id="preview-pane" aria-label="마크다운 미리보기">
+        <div class="pane-header">
+          <span class="pane-title">미리보기</span>
+          <span class="pane-meta">실시간</span>
+        </div>
+        <div class="preview-scroll">
+          <article id="preview-content" aria-live="polite" aria-label="렌더링된 마크다운"></article>
+        </div>
+      </section>
+    </main>
+
+    <!-- 상태 바 -->
+    <footer class="statusbar" role="status" aria-label="에디터 상태">
+      <div class="statusbar-left">
+        <span class="statusbar-item" id="sb-chars">문자 <strong id="sb-char-count">0</strong></span>
+        <span class="statusbar-item" id="sb-lines">줄 <strong id="sb-line-count">0</strong></span>
+        <span class="statusbar-item" id="sb-words">단어 <strong id="sb-word-count">0</strong></span>
+      </div>
+      <div class="statusbar-right">
+        <span class="statusbar-item">Ctrl+B 굵게 &nbsp;·&nbsp; Ctrl+I 기울임 &nbsp;·&nbsp; Ctrl+K 링크</span>
+        <span class="statusbar-item" id="sb-save">자동 저장됨</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="markdown-parser.js"></script>
+  <script src="editor.js"></script>
+
+  <!-- 상태 바 카운터 스크립트 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const textarea = document.getElementById('editor-textarea');
+      const charCount = document.getElementById('sb-char-count');
+      const lineCount = document.getElementById('sb-line-count');
+      const wordCount = document.getElementById('sb-word-count');
+      const saveIndicator = document.getElementById('sb-save');
+
+      let saveTimer = null;
+
+      function updateStats() {
+        const text = textarea.value;
+        charCount.textContent = text.length.toLocaleString();
+        lineCount.textContent = text === '' ? 0 : text.split('\n').length.toLocaleString();
+        const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+        wordCount.textContent = words.toLocaleString();
+
+        // 저장 상태 표시
+        saveIndicator.textContent = '저장 중...';
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => {
+          saveIndicator.textContent = '자동 저장됨';
+        }, 600);
+      }
+
+      textarea.addEventListener('input', updateStats);
+
+      // 초기 통계 (editor.js가 내용을 로드한 뒤 실행)
+      setTimeout(updateStats, 100);
+    });
+  </script>
+</body>
+</html>

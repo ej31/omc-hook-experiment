@@ -1,0 +1,6 @@
+Now create editor.test.js with comprehensive tests using plain assertions (console.log based, no framework). Test all of the following:
+1. Markdown parser: headings h1-h6, bold, italic, bold+italic, inline code, code blocks, links, images, unordered lists, ordered lists, nested lists, blockquotes, nested blockquotes, horizontal rules, paragraphs, line breaks, escape characters
+2. Parser edge cases: empty input, only whitespace, unclosed bold/italic markers, malformed links, consecutive headings, mixed inline formatting
+3. Toolbar actions: each button inserts correct syntax, wrapping selected text works correctly
+4. Editor state: localStorage save and restore, export HTML output correctness
+Then run: node editor.test.js

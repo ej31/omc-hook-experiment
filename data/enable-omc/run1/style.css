@@ -1,0 +1,626 @@
+/* ===== 기본 리셋 및 변수 ===== */
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --bg-toolbar: #1c2128;
+  --border-color: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent-blue: #388bfd;
+  --accent-blue-hover: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-orange: #d29922;
+  --accent-purple: #bc8cff;
+  --accent-red: #f85149;
+  --toolbar-btn-bg: #21262d;
+  --toolbar-btn-hover: #30363d;
+  --toolbar-btn-active: #388bfd22;
+  --resizer-color: #30363d;
+  --resizer-hover: #388bfd;
+  --shadow: 0 1px 3px rgba(0,0,0,0.4);
+  --radius: 6px;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+  --transition: 0.15s ease;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== 앱 레이아웃 ===== */
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ===== 헤더 ===== */
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 48px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+#header h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#header h1 .logo-icon {
+  font-size: 18px;
+}
+
+/* ===== 툴바 ===== */
+#toolbar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  background: var(--bg-toolbar);
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  min-height: 44px;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 20px;
+  background: var(--border-color);
+  margin: 0 6px;
+  flex-shrink: 0;
+}
+
+.toolbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 9px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  line-height: 1;
+  min-width: 32px;
+  min-height: 28px;
+}
+
+.toolbar-btn:hover {
+  background: var(--toolbar-btn-hover);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.toolbar-btn:active {
+  background: var(--toolbar-btn-active);
+  color: var(--accent-blue-hover);
+  border-color: var(--accent-blue);
+}
+
+.toolbar-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.toolbar-btn.bold svg { stroke-width: 2.5; }
+
+/* 헤딩 버튼 특별 스타일 */
+.toolbar-btn[data-action="heading1"] { font-size: 11px; font-weight: 700; }
+.toolbar-btn[data-action="heading2"] { font-size: 11px; font-weight: 700; }
+.toolbar-btn[data-action="heading3"] { font-size: 11px; font-weight: 700; }
+
+/* Export 버튼 */
+#export-btn {
+  margin-left: auto;
+  padding: 5px 14px;
+  background: var(--accent-green);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  color: #0d1117;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#export-btn:hover {
+  background: #46d560;
+  transform: translateY(-1px);
+}
+
+#export-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== 메인 에디터 영역 ===== */
+#editor-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===== 에디터 패널 ===== */
+.pane {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 80px;
+}
+
+#editor-pane {
+  flex: 1;
+  border-right: none;
+}
+
+#preview-pane {
+  flex: 1;
+}
+
+.pane-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  flex-shrink: 0;
+  height: 34px;
+}
+
+.pane-header .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* 에디터 textarea */
+#editor {
+  flex: 1;
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  caret-color: var(--accent-blue);
+  overflow-y: auto;
+}
+
+#editor::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+#editor::selection {
+  background: rgba(56, 139, 253, 0.3);
+}
+
+/* ===== 드래그 리사이저 ===== */
+#resizer {
+  width: 4px;
+  background: var(--resizer-color);
+  cursor: col-resize;
+  flex-shrink: 0;
+  position: relative;
+  transition: background var(--transition);
+  z-index: 5;
+}
+
+#resizer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 32px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  opacity: 0.4;
+  transition: opacity var(--transition);
+}
+
+#resizer:hover,
+#resizer.dragging {
+  background: var(--resizer-hover);
+}
+
+#resizer:hover::before,
+#resizer.dragging::before {
+  opacity: 1;
+  background: var(--accent-blue);
+}
+
+/* ===== 미리보기 패널 ===== */
+#preview {
+  flex: 1;
+  padding: 24px 32px;
+  background: var(--bg-secondary);
+  overflow-y: auto;
+  color: var(--text-primary);
+}
+
+/* ===== GitHub 스타일 마크다운 미리보기 ===== */
+#preview h1, #preview h2, #preview h3,
+#preview h4, #preview h5, #preview h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+#preview h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#preview h2 {
+  font-size: 1.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#preview h3 { font-size: 1.25em; }
+#preview h4 { font-size: 1em; }
+#preview h5 { font-size: 0.875em; }
+#preview h6 {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+#preview p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+#preview a {
+  color: var(--accent-blue-hover);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition);
+}
+
+#preview a:hover {
+  border-bottom-color: var(--accent-blue-hover);
+}
+
+#preview strong { font-weight: 700; color: var(--text-primary); }
+#preview em { font-style: italic; color: var(--text-primary); }
+#preview del { color: var(--text-muted); text-decoration: line-through; }
+
+#preview code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-tertiary);
+  color: #f08080;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+#preview pre {
+  position: relative;
+  margin: 16px 0;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+#preview pre .code-lang {
+  display: block;
+  padding: 6px 16px;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+#preview pre code {
+  display: block;
+  padding: 16px;
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  border-radius: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+#preview ul, #preview ol {
+  padding-left: 2em;
+  margin-bottom: 16px;
+}
+
+#preview li {
+  margin-bottom: 4px;
+  line-height: 1.7;
+}
+
+#preview li > ul, #preview li > ol {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+#preview ul li { list-style-type: disc; }
+#preview ul li li { list-style-type: circle; }
+#preview ul li li li { list-style-type: square; }
+#preview ol li { list-style-type: decimal; }
+
+#preview blockquote {
+  margin: 16px 0;
+  padding: 12px 20px;
+  border-left: 4px solid var(--accent-blue);
+  background: rgba(56, 139, 253, 0.06);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  color: var(--text-secondary);
+}
+
+#preview blockquote p {
+  margin-bottom: 8px;
+}
+
+#preview blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+#preview blockquote blockquote {
+  margin: 8px 0 0;
+  border-left-color: var(--accent-purple);
+  background: rgba(188, 140, 255, 0.05);
+}
+
+#preview hr {
+  border: none;
+  height: 2px;
+  background: var(--border-color);
+  margin: 24px 0;
+  border-radius: 2px;
+}
+
+#preview img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+}
+
+#preview table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+#preview th, #preview td {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+#preview th {
+  background: var(--bg-tertiary);
+  font-weight: 600;
+}
+
+#preview tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ===== 빈 상태 안내 ===== */
+#preview-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  text-align: center;
+  gap: 12px;
+}
+
+#preview-empty .empty-icon {
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+#preview-empty p {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ===== 스크롤바 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+
+/* ===== 저장 상태 표시 ===== */
+#save-status {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity var(--transition);
+}
+
+#save-status.saved { color: var(--accent-green); }
+#save-status.unsaved { color: var(--accent-orange); }
+
+/* ===== 단어 수 표시 ===== */
+#word-count {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 0 8px;
+}
+
+/* ===== 알림 토스트 ===== */
+#toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 10px 18px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 13px;
+  box-shadow: var(--shadow), 0 4px 12px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s, transform 0.2s;
+  pointer-events: none;
+  z-index: 100;
+  max-width: 300px;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#toast.success { border-left: 3px solid var(--accent-green); }
+#toast.error { border-left: 3px solid var(--accent-red); }
+#toast.info { border-left: 3px solid var(--accent-blue); }
+
+/* ===== 반응형 ===== */
+@media (max-width: 768px) {
+  #editor-container {
+    flex-direction: column;
+  }
+
+  #resizer {
+    width: 100%;
+    height: 4px;
+    cursor: row-resize;
+  }
+
+  #resizer::before {
+    width: 32px;
+    height: 2px;
+  }
+
+  #editor-pane {
+    flex: none;
+    height: 45%;
+  }
+
+  #preview-pane {
+    flex: 1;
+  }
+
+  .toolbar-separator {
+    display: none;
+  }
+
+  #toolbar {
+    gap: 1px;
+    padding: 4px 8px;
+  }
+
+  .toolbar-btn {
+    padding: 5px 7px;
+    font-size: 11px;
+  }
+
+  #export-btn {
+    margin-left: 0;
+  }
+}
+
+/* ===== 포커스 스타일 ===== */
+*:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
+}

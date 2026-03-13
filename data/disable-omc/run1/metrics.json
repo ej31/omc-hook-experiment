@@ -1,0 +1,141 @@
+{
+  "condition": "disable",
+  "run": 1,
+  "duration_sec": 2592,
+  "p1_duration_sec": 368,
+  "p2_duration_sec": 0,
+  "p3_duration_sec": 0,
+  "total_tool_calls": 40,
+  "total_turns": 40,
+  "parallel_turns": 0,
+  "sequential_turns": 40,
+  "parallel_rate": 0.0,
+  "tool_failures": 0,
+  "stop_hook_blocks": 0,
+  "system_reminders": 2,
+  "agent_delegations": 0,
+  "main_tokens": {
+    "input_tokens": 84,
+    "cache_creation_input_tokens": 237722,
+    "cache_read_input_tokens": 5409080,
+    "output_tokens": 66502,
+    "total_input_tokens": 5646886,
+    "total_tokens": 5713388
+  },
+  "main_cost": {
+    "cost_input": 0.000252,
+    "cost_cache_write": 0.891458,
+    "cost_cache_read": 1.622724,
+    "cost_output": 0.99753,
+    "cost_total": 3.512
+  },
+  "subagent_tokens": {
+    "input_tokens": 0,
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 0,
+    "total_input_tokens": 0,
+    "total_tokens": 0
+  },
+  "subagent_cost": {
+    "cost_input": 0.0,
+    "cost_cache_write": 0.0,
+    "cost_cache_read": 0.0,
+    "cost_output": 0.0,
+    "cost_total": 0.0
+  },
+  "subagent_transcript_files": [],
+  "combined_tokens": {
+    "input_tokens": 84,
+    "cache_creation_input_tokens": 237722,
+    "cache_read_input_tokens": 5409080,
+    "output_tokens": 66502,
+    "total_input_tokens": 5646886,
+    "total_tokens": 5713388
+  },
+  "combined_cost": {
+    "cost_input": 0.000252,
+    "cost_cache_write": 0.891458,
+    "cost_cache_read": 1.622724,
+    "cost_output": 0.99753,
+    "cost_total": 3.512
+  },
+  "per_prompt_tokens": {
+    "p1": {
+      "input_tokens": 7,
+      "cache_creation_input_tokens": 58896,
+      "cache_read_input_tokens": 183028,
+      "output_tokens": 28780,
+      "total_input_tokens": 241931,
+      "total_tokens": 270711,
+      "cost": {
+        "cost_input": 2.1e-05,
+        "cost_cache_write": 0.22086,
+        "cost_cache_read": 0.054908,
+        "cost_output": 0.4317,
+        "cost_total": 0.7075
+      }
+    },
+    "p2": {
+      "input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 0,
+      "total_input_tokens": 0,
+      "total_tokens": 0,
+      "cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      }
+    },
+    "p3": {
+      "input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 0,
+      "output_tokens": 0,
+      "total_input_tokens": 0,
+      "total_tokens": 0,
+      "cost": {
+        "cost_input": 0.0,
+        "cost_cache_write": 0.0,
+        "cost_cache_read": 0.0,
+        "cost_output": 0.0,
+        "cost_total": 0.0
+      }
+    }
+  },
+  "code_lines": {
+    "index.html": 117,
+    "style.css": 642,
+    "editor.js": 438,
+    "markdown-parser.js": 265,
+    "editor.test.js": 570
+  },
+  "total_code_lines": 2032,
+  "test_pass_count": 0,
+  "test_fail_count": 0,
+  "test_total": 0,
+  "test_passed": false,
+  "tool_breakdown": {
+    "Write": 5,
+    "Bash": 25,
+    "Edit": 8,
+    "Read": 2
+  },
+  "created_files": [
+    "editor.js",
+    "editor.test.js",
+    "index.html",
+    "markdown-parser.js",
+    "style.css"
+  ],
+  "transcript_lines": 119,
+  "transcript_paths": [
+    "/Users/yimtaejong/.claude/projects/-Users-yimtaejong-omc-verification-disable-omc-run1/1a30f4b6-7ea3-4281-be48-a07a347b7b11.jsonl"
+  ],
+  "transcript_count": 1,
+  "parallel_details": []
+}

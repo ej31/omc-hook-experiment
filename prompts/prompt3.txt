@@ -1,0 +1,1 @@
+Review all created files thoroughly. Check for: parser correctness on edge cases, proper HTML escaping (XSS prevention), toolbar cursor position handling, resize drag edge cases, memory leaks in event listeners, accessibility issues. Fix any bugs found. Run the tests again with: node editor.test.js. Report the final test results with pass/fail counts.
